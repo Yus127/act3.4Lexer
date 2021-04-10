@@ -1,8 +1,11 @@
 #include <stdio.h>
 int main() {
     char operator;
-    double first, second;
+    double first, secod;
+		3
+/
+-6.4
 
-
-    printf("Enter two operands: ");
+//abprintfprintf ab
+    printf("J F H  JJHHN");
 }

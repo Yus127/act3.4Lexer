@@ -3,9 +3,15 @@ span.ID {
 }
 
 span.RW {
-    color: blue;
+    color: green;
 }
 
-span.INTEGER{
-    color:aqua;
+span.NUMBER{
+    color:blue;
+}
+span.AA {
+    color:mediumslateblue;
+}
+span.COMM {
+    color:lightblue;
 }
