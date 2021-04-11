@@ -12,7 +12,7 @@
 -export([format_error/1]).
 
 %% User code. This is placed here to allow extra attributes.
--file("./lexer.xrl", 84).
+-file("./lexer.xrl", 77).
 -export([reserved_word/1, reserved_word2/1, pruebas/3]).
 
 reserved_word('if')-> true;
@@ -855,38 +855,48 @@ yyaction(3, _, _, TokenLine) ->
     yyaction_3(TokenLine);
 yyaction(4, _, _, TokenLine) ->
     yyaction_4(TokenLine);
-yyaction(5, _, _, TokenLine) ->
-    yyaction_5(TokenLine);
+yyaction(5, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_5(TokenChars, TokenLine);
 yyaction(6, _, _, TokenLine) ->
     yyaction_6(TokenLine);
 yyaction(7, _, _, TokenLine) ->
     yyaction_7(TokenLine);
-yyaction(8, _, _, TokenLine) ->
-    yyaction_8(TokenLine);
-yyaction(9, _, _, TokenLine) ->
-    yyaction_9(TokenLine);
-yyaction(10, _, _, TokenLine) ->
-    yyaction_10(TokenLine);
+yyaction(8, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_8(TokenChars, TokenLine);
+yyaction(9, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_9(TokenChars, TokenLine);
+yyaction(10, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_10(TokenChars, TokenLine);
 yyaction(11, _, _, TokenLine) ->
     yyaction_11(TokenLine);
-yyaction(12, _, _, TokenLine) ->
-    yyaction_12(TokenLine);
+yyaction(12, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_12(TokenChars, TokenLine);
 yyaction(13, _, _, TokenLine) ->
     yyaction_13(TokenLine);
 yyaction(14, _, _, TokenLine) ->
     yyaction_14(TokenLine);
-yyaction(15, _, _, TokenLine) ->
-    yyaction_15(TokenLine);
+yyaction(15, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_15(TokenChars, TokenLine);
 yyaction(16, _, _, TokenLine) ->
     yyaction_16(TokenLine);
-yyaction(17, _, _, TokenLine) ->
-    yyaction_17(TokenLine);
-yyaction(18, _, _, TokenLine) ->
-    yyaction_18(TokenLine);
-yyaction(19, _, _, TokenLine) ->
-    yyaction_19(TokenLine);
-yyaction(20, _, _, TokenLine) ->
-    yyaction_20(TokenLine);
+yyaction(17, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_17(TokenChars, TokenLine);
+yyaction(18, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_18(TokenChars, TokenLine);
+yyaction(19, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_19(TokenChars, TokenLine);
+yyaction(20, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_20(TokenChars, TokenLine);
 yyaction(21, _, _, TokenLine) ->
     yyaction_21(TokenLine);
 yyaction(22, _, _, TokenLine) ->
@@ -901,8 +911,9 @@ yyaction(26, _, _, TokenLine) ->
     yyaction_26(TokenLine);
 yyaction(27, _, _, TokenLine) ->
     yyaction_27(TokenLine);
-yyaction(28, _, _, TokenLine) ->
-    yyaction_28(TokenLine);
+yyaction(28, TokenLen, YYtcs, TokenLine) ->
+    TokenChars = yypre(YYtcs, TokenLen),
+    yyaction_28(TokenChars, TokenLine);
 yyaction(29, _, _, TokenLine) ->
     yyaction_29(TokenLine);
 yyaction(30, _, _, TokenLine) ->
@@ -959,10 +970,10 @@ yyaction_3(TokenLine) ->
 yyaction_4(TokenLine) ->
      { token, { 'DOLL', "$", TokenLine } } .
 
--compile({inline,yyaction_5/1}).
+-compile({inline,yyaction_5/2}).
 -file("./lexer.xrl", 15).
-yyaction_5(TokenLine) ->
-     { token, { 'PER', "%", TokenLine } } .
+yyaction_5(TokenChars, TokenLine) ->
+     { token, { 'PER', "<span class=\"MATH\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_6/1}).
 -file("./lexer.xrl", 16).
@@ -974,30 +985,30 @@ yyaction_6(TokenLine) ->
 yyaction_7(TokenLine) ->
      { token, { 'AMPER', "&", TokenLine } } .
 
--compile({inline,yyaction_8/1}).
+-compile({inline,yyaction_8/2}).
 -file("./lexer.xrl", 18).
-yyaction_8(TokenLine) ->
-     { token, { 'AS', "*", TokenLine } } .
+yyaction_8(TokenChars, TokenLine) ->
+     { token, { 'AS', "<span class=\"MATH\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
--compile({inline,yyaction_9/1}).
+-compile({inline,yyaction_9/2}).
 -file("./lexer.xrl", 19).
-yyaction_9(TokenLine) ->
-     { token, { 'LP', "(", TokenLine } } .
+yyaction_9(TokenChars, TokenLine) ->
+     { token, { 'LP', "<span class=\"DIV\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
--compile({inline,yyaction_10/1}).
+-compile({inline,yyaction_10/2}).
 -file("./lexer.xrl", 20).
-yyaction_10(TokenLine) ->
-     { token, { 'RP', ")", TokenLine } } .
+yyaction_10(TokenChars, TokenLine) ->
+     { token, { 'RP', "<span class=\"DIV\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_11/1}).
 -file("./lexer.xrl", 21).
 yyaction_11(TokenLine) ->
      { token, { 'US', "_", TokenLine } } .
 
--compile({inline,yyaction_12/1}).
+-compile({inline,yyaction_12/2}).
 -file("./lexer.xrl", 22).
-yyaction_12(TokenLine) ->
-     { token, { 'PS', "+", TokenLine } } .
+yyaction_12(TokenChars, TokenLine) ->
+     { token, { 'PS', "<span class=\"MATH\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_13/1}).
 -file("./lexer.xrl", 23).
@@ -1009,35 +1020,35 @@ yyaction_13(TokenLine) ->
 yyaction_14(TokenLine) ->
      { token, { 'BS', "\\", TokenLine } } .
 
--compile({inline,yyaction_15/1}).
+-compile({inline,yyaction_15/2}).
 -file("./lexer.xrl", 25).
-yyaction_15(TokenLine) ->
-     { token, { 'MIN', "-", TokenLine } } .
+yyaction_15(TokenChars, TokenLine) ->
+     { token, { 'MIN', "<span class=\"MATH\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_16/1}).
 -file("./lexer.xrl", 26).
 yyaction_16(TokenLine) ->
      { token, { 'AS', "=", TokenLine } } .
 
--compile({inline,yyaction_17/1}).
+-compile({inline,yyaction_17/2}).
 -file("./lexer.xrl", 27).
-yyaction_17(TokenLine) ->
-     { token, { 'LB', "{", TokenLine } } .
+yyaction_17(TokenChars, TokenLine) ->
+     { token, { 'LB', "<span class=\"DIV\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
--compile({inline,yyaction_18/1}).
+-compile({inline,yyaction_18/2}).
 -file("./lexer.xrl", 28).
-yyaction_18(TokenLine) ->
-     { token, { 'RB', "}", TokenLine } } .
+yyaction_18(TokenChars, TokenLine) ->
+     { token, { 'RB', "<span class=\"DIV\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
--compile({inline,yyaction_19/1}).
+-compile({inline,yyaction_19/2}).
 -file("./lexer.xrl", 29).
-yyaction_19(TokenLine) ->
-     { token, { 'LB', "[", TokenLine } } .
+yyaction_19(TokenChars, TokenLine) ->
+     { token, { 'LB', "<span class=\"DIV\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
--compile({inline,yyaction_20/1}).
+-compile({inline,yyaction_20/2}).
 -file("./lexer.xrl", 30).
-yyaction_20(TokenLine) ->
-     { token, { 'RB', "]", TokenLine } } .
+yyaction_20(TokenChars, TokenLine) ->
+     { token, { 'RB', "<span class=\"DIV\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_21/1}).
 -file("./lexer.xrl", 31).
@@ -1074,10 +1085,10 @@ yyaction_26(TokenLine) ->
 yyaction_27(TokenLine) ->
      { token, { 'DOT', ".", TokenLine } } .
 
--compile({inline,yyaction_28/1}).
+-compile({inline,yyaction_28/2}).
 -file("./lexer.xrl", 38).
-yyaction_28(TokenLine) ->
-     { token, { 'SLASH', "/", TokenLine } } .
+yyaction_28(TokenChars, TokenLine) ->
+     { token, { 'SLASH', "<span class=\"MATH\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_29/1}).
 -file("./lexer.xrl", 41).
@@ -1100,7 +1111,7 @@ yyaction_32(TokenLine) ->
      { token, { 'WS', "&nbsp;", TokenLine } } .
 
 -compile({inline,yyaction_33/2}).
--file("./lexer.xrl", 52).
+-file("./lexer.xrl", 48).
 yyaction_33(TokenChars, TokenLine) ->
      Atom = list_to_atom (TokenChars),
     
@@ -1110,32 +1121,32 @@ yyaction_33(TokenChars, TokenLine) ->
      end .
 
 -compile({inline,yyaction_34/2}).
--file("./lexer.xrl", 59).
+-file("./lexer.xrl", 55).
 yyaction_34(TokenChars, TokenLine) ->
      { token, { 'INTEGER', "<span class=\"NUMBER\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_35/2}).
--file("./lexer.xrl", 62).
+-file("./lexer.xrl", 58).
 yyaction_35(TokenChars, TokenLine) ->
      { token, { 'FLOAT', "<span class=\"NUMBER2\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_36/2}).
--file("./lexer.xrl", 65).
+-file("./lexer.xrl", 61).
 yyaction_36(TokenChars, TokenLine) ->
      { token, { 'FLOAT', "<span class=\"NUMBER1\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_37/2}).
--file("./lexer.xrl", 68).
+-file("./lexer.xrl", 64).
 yyaction_37(TokenChars, TokenLine) ->
      { token, { 'DIAG', "<span class=\"COMM\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_38/2}).
--file("./lexer.xrl", 71).
+-file("./lexer.xrl", 67).
 yyaction_38(TokenChars, TokenLine) ->
      { token, { 'COMM', "<span class=\"COMM\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
 -compile({inline,yyaction_39/2}).
--file("./lexer.xrl", 74).
+-file("./lexer.xrl", 70).
 yyaction_39(TokenChars, TokenLine) ->
      { token, { 'QM', "<span class=\"AA\">" ++ TokenChars ++ "</span>", TokenLine } } .
 

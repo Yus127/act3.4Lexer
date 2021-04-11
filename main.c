@@ -1,16 +1,13 @@
 #include <stdio.h>
-int foo(int bar) {
-    /* do so
-    mething */
-    return bar * 2;
-}
 
-int main() {
-  printf
-    foo(1);
-    //ad =
-    1.3
-    2e4
-    ~ ! # $ %  ^ & * ( ) _ + | \ - = { } [ ] : ; < > ? , . /
+int main(void) {
+
+  for (int i = 0; i < 5; ++i) {
+     printf("C programming");
+  }
+
+ // Error: i is not declared at this point
+  printf("%d", i);
+  return 0;
 }
-"ab% -3"
+    ~ ! # $ %  ^ & * ( ) _ + | \ - = { } [ ] : ; < > ? , . /

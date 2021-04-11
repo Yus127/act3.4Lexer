@@ -14,22 +14,22 @@ Rules.
       {token, {'INC', "<span class=\"INC\">" ++ TokenChars ++"</span>", TokenLine}}.
 \#       :   {token, {'NS', "#", TokenLine}}.
 \$       :   {token, {'DOLL', "$", TokenLine}}.
-\%      :   {token, {'PER', "%", TokenLine}}.
+\%      :   {token, {'PER', "<span class=\"MATH\">" ++ TokenChars ++"</span>", TokenLine}}.
 \^      :   {token, {'CARET', "^", TokenLine}}.
 \&      :   {token, {'AMPER', "&", TokenLine}}.
-\*      :   {token, {'AS', "*", TokenLine}}.
-\(      :   {token, {'LP', "(", TokenLine}}.
-\)      :   {token, {'RP', ")", TokenLine}}.
+\*      :   {token, {'AS', "<span class=\"MATH\">" ++ TokenChars ++"</span>", TokenLine}}.
+\(      :   {token, {'LP', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
+\)      :   {token, {'RP', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
 \_      :   {token, {'US', "_", TokenLine}}.
-\+      :   {token, {'PS', "+", TokenLine}}.
+\+      :   {token, {'PS', "<span class=\"MATH\">" ++ TokenChars ++"</span>", TokenLine}}.
 \|      :   {token, {'VB', "|", TokenLine}}.
 \\      :   {token, {'BS', "\\", TokenLine}}.
-\-      :   {token, {'MIN', "-", TokenLine}}.
+\-      :   {token, {'MIN', "<span class=\"MATH\">" ++ TokenChars ++"</span>", TokenLine}}.
 \=       :   {token, {'AS', "=", TokenLine}}.
-\{      :   {token, {'LB', "{", TokenLine}}.
-\}      :   {token, {'RB', "}", TokenLine}}.
-\[      :   {token, {'LB', "[", TokenLine}}.
-\]      :   {token, {'RB', "]", TokenLine}}.
+\{      :   {token, {'LB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
+\}      :   {token, {'RB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
+\[      :   {token, {'LB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
+\]      :   {token, {'RB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
 \:      :   {token, {'DP', ":", TokenLine}}.
 ;       :   {token, {'SEMI', ";", TokenLine}}.
 <       :   {token, {'LT', "<", TokenLine}}.
@@ -37,7 +37,7 @@ Rules.
 \?      :   {token, {'QM', "?", TokenLine}}.
 \,      :   {token, {'COMMA', ",", TokenLine}}.
 \.      :   {token, {'DOT', ".", TokenLine}}.
-/       :   {token, {'SLASH', "/", TokenLine}}.
+/       :   {token, {'SLASH', "<span class=\"MATH\">" ++ TokenChars ++"</span>", TokenLine}}.
 
 
 \n		:	{token, {'WS', "\n<br />", TokenLine}}.

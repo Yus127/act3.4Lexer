@@ -1,29 +1,42 @@
 span.ID {
-    color:red;
+    color:MediumVioletRed;
 }
 
 span.RW {
-    color: green;
+    color: teal;
 }
+
 span.RW2 {
-    color: blue;
+    color: OliveDrab;
 }
 
 span.NUMBER{
-    color:darkblue;
+    color:DodgerBlue;
 }
+
 span.NUMBER1{
     color:blue;
 }
+
 span.NUMBER2{
-    color:navy;
+    color:CornflowerBlue;
 }
+
 span.AA {
     color:darkred;
 }
+
 span.COMM {
     color:darkgrey;
 }
+
 span.INC {
     color:brown;
+}
+span.MATH {
+    color:DarkSlateBlue;
+}
+
+span.DIV {
+    color:DarkViolet;
 }
