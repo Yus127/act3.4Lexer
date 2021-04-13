@@ -69,6 +69,8 @@ Rules.
 \"{Anything}\" :
       {token, {'QM', "<span class=\"AA\">" ++ TokenChars ++"</span>", TokenLine}}.
 
+\'{Anything}\' :
+      {token, {'QM', "<span class=\"AA\">" ++ TokenChars ++"</span>", TokenLine}}.
 
 
 
