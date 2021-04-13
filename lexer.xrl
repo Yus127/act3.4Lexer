@@ -62,11 +62,9 @@ Rules.
 (\+|-)?{Digit}*\.{Digit}* :
       {token, {'FLOAT', "<span class=\"NUMBER1\">" ++ TokenChars ++"</span>", TokenLine}}.
 
-//{Anything} :
-      {token, {'DIAG', "<span class=\"COMM\">" ++ TokenChars ++"</span>", TokenLine}}.
+//{Anything} :  skip_token.
 
-/\*({Letter_}|{Digit}|\r|\t|\s|\n|<|>|=|/|#|\{|\}|\(|\)|;|\.|\,|\"|\:)*\*/ :
-      {token, {'COMM', "<span class=\"COMM\">" ++ TokenChars ++"</span>", TokenLine}}.
+/\*({Letter_}|{Digit}|\r|\t|\s|\n|<|>|=|/|#|\{|\}|\(|\)|;|\.|\,|\"|\:)*\*/ :  skip_token.
 
 \"{Anything}\" :
       {token, {'QM', "<span class=\"AA\">" ++ TokenChars ++"</span>", TokenLine}}.

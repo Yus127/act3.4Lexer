@@ -12,7 +12,7 @@
 -export([format_error/1]).
 
 %% User code. This is placed here to allow extra attributes.
--file("./lexer.xrl", 77).
+-file("./lexer.xrl", 75).
 -export([reserved_word/1, reserved_word2/1, pruebas/3]).
 
 reserved_word('if')-> true;
@@ -934,12 +934,10 @@ yyaction(35, TokenLen, YYtcs, TokenLine) ->
 yyaction(36, TokenLen, YYtcs, TokenLine) ->
     TokenChars = yypre(YYtcs, TokenLen),
     yyaction_36(TokenChars, TokenLine);
-yyaction(37, TokenLen, YYtcs, TokenLine) ->
-    TokenChars = yypre(YYtcs, TokenLen),
-    yyaction_37(TokenChars, TokenLine);
-yyaction(38, TokenLen, YYtcs, TokenLine) ->
-    TokenChars = yypre(YYtcs, TokenLen),
-    yyaction_38(TokenChars, TokenLine);
+yyaction(37, _, _, _) ->
+    yyaction_37();
+yyaction(38, _, _, _) ->
+    yyaction_38();
 yyaction(39, TokenLen, YYtcs, TokenLine) ->
     TokenChars = yypre(YYtcs, TokenLen),
     yyaction_39(TokenChars, TokenLine);
@@ -1135,18 +1133,18 @@ yyaction_35(TokenChars, TokenLine) ->
 yyaction_36(TokenChars, TokenLine) ->
      { token, { 'FLOAT', "<span class=\"NUMBER1\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
--compile({inline,yyaction_37/2}).
--file("./lexer.xrl", 64).
-yyaction_37(TokenChars, TokenLine) ->
-     { token, { 'DIAG', "<span class=\"COMM\">" ++ TokenChars ++ "</span>", TokenLine } } .
+-compile({inline,yyaction_37/0}).
+-file("./lexer.xrl", 63).
+yyaction_37() ->
+     skip_token .
 
--compile({inline,yyaction_38/2}).
--file("./lexer.xrl", 67).
-yyaction_38(TokenChars, TokenLine) ->
-     { token, { 'COMM', "<span class=\"COMM\">" ++ TokenChars ++ "</span>", TokenLine } } .
+-compile({inline,yyaction_38/0}).
+-file("./lexer.xrl", 65).
+yyaction_38() ->
+     skip_token .
 
 -compile({inline,yyaction_39/2}).
--file("./lexer.xrl", 70).
+-file("./lexer.xrl", 68).
 yyaction_39(TokenChars, TokenLine) ->
      { token, { 'QM', "<span class=\"AA\">" ++ TokenChars ++ "</span>", TokenLine } } .
 
