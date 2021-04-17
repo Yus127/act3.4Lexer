@@ -5,7 +5,7 @@ Definitions.
 Digit	= [0-9]
 Letter	= [a-zA-Z]
 Letter_ = ({Letter}|_)
-Anything = ({Letter_}|{Digit}|\r|\t|\s|<|>|=|/|#|\{|\}|\(|\)|;|\.|\,|\"|\:|\-|%)*
+Anything = ({Letter_}|{Digit}|\r|\t|\s|<|>|=|<=|>=|==||||&&|!=|/|#|\{|\}|\(|\)|;|\.|\,|\"|\:|\-|%)*
 
 Rules.
 \~       :   {token, {'TILDE', "~", TokenLine}}.
@@ -25,7 +25,7 @@ Rules.
 \|      :   {token, {'VB', "|", TokenLine}}.
 \\      :   {token, {'BS', "\\", TokenLine}}.
 \-      :   {token, {'MIN', "<span class=\"MATH\">" ++ TokenChars ++"</span>", TokenLine}}.
-\=       :   {token, {'AS', "=", TokenLine}}.
+\=      :   {token, {'AS', "=", TokenLine}}.
 \{      :   {token, {'LB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
 \}      :   {token, {'RB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
 \[      :   {token, {'LB', "<span class=\"DIV\">" ++ TokenChars ++"</span>", TokenLine}}.
@@ -34,6 +34,12 @@ Rules.
 ;       :   {token, {'SEMI', ";", TokenLine}}.
 <       :   {token, {'LT', "<", TokenLine}}.
 >       :   {token, {'GT', ">", TokenLine}}.
+\<=     :   {token, {'LA', "<=", TokenLine}}.
+\>=     :   {token, {'GA', ">=", TokenLine}}.
+\==     :   {token, {'AA', "==", TokenLine}}.
+\||     :   {token, {'VV', "||", TokenLine}}.
+\&&     :   {token, {'DM', "&&", TokenLine}}.
+\!=     :   {token, {'EA', "!=", TokenLine}}.
 \?      :   {token, {'QM', "?", TokenLine}}.
 \,      :   {token, {'COMMA', ",", TokenLine}}.
 \.      :   {token, {'DOT', ".", TokenLine}}.
@@ -64,7 +70,7 @@ Rules.
 
 //{Anything} :  skip_token.
 
-/\*({Letter_}|{Digit}|\r|\t|\s|\n|<|>|=|/|#|\{|\}|\(|\)|;|\.|\,|\"|\:)*\*/ :  skip_token.
+/\*({Letter_}|{Digit}|\r|\t|\s|\n|<|>|=|<=|>=|==||||&&|!=|/|#|\{|\}|\(|\)|;|\.|\,|\"|\:)*\*/ :  skip_token.
 
 \"{Anything}\" :
       {token, {'QM', "<span class=\"AA\">" ++ TokenChars ++"</span>", TokenLine}}.
@@ -94,6 +100,10 @@ reserved_word('goto')-> true;
 reserved_word('continue')-> true;
 reserved_word('struct')-> true;
 reserved_word('union')-> true;
+reserved_word('true')->true;
+reserved_word('false')->true;
+reserved_word('True')->true;
+reserved_word('False')->true;
 reserved_word(_)-> false.
 
 reserved_word2('int') ->true;
