@@ -1,13 +1,13 @@
 span.ID {
-    color:MediumVioletRed;
+    color:black;
 }
 
 span.RW {
-    color: teal;
+    color: rgb(158, 175, 0);
 }
 
 span.RW2 {
-    color: OliveDrab;
+    color: rgb(8, 49, 0);
 }
 
 span.NUMBER{
@@ -28,10 +28,10 @@ span.AA {
 
 
 span.INC {
-    color:brown;
+    color:darkslateblue;
 }
 span.MATH {
-    color:DarkSlateBlue;
+    color:darkseagreen;
 }
 
 span.DIV {
