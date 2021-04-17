@@ -1,39 +1,60 @@
+/*
+Archivo donde se definen los estilos de las diferentes categorías léxicas, en la mayorí a se cambió el color de la fuente 
+Yusdivia Molina Román A01653120
+Lidia Paola Díaz Ramírez A01369117
+Fecha de modificación: 16/04/2021
+*/
 span.ID {
-    color:black;
+    color: #643973;   
 }
 
 span.RW {
     color: rgb(158, 175, 0);
+    font-style: italic;
 }
 
 span.RW2 {
     color: rgb(8, 49, 0);
+    font-style: italic;
 }
 
 span.NUMBER{
-    color:DodgerBlue;
+    
+    color: #609b55;
+    font-style: oblique;
 }
 
 span.NUMBER1{
-    color:blue;
+    color: #90b061;
+    font-style: oblique;
 }
 
 span.NUMBER2{
-    color:CornflowerBlue;
+    color: #9CB37B;
+    font-style: oblique;   
 }
 
-span.AA {
-    color:darkred;
+span.STRING {
+    color:#3f7898;
 }
 
 
 span.INC {
-    color:darkslateblue;
+    color:brown;  
 }
+
 span.MATH {
-    color:darkseagreen;
+    color:#c16266;  
 }
 
 span.DIV {
-    color:DarkViolet;
+   font-weight: bold;   
+}
+
+span.COMP{
+   color:darkslateblue;
+}
+
+span.CARACT{
+    text-shadow:  0 -1px;
 }
