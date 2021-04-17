@@ -1,22 +1,17 @@
-%%%-------------------------------------------------------------------
-%%% @author rafamac
-%%% @copyright (C) 2021, <COMPANY>
-%%% @doc
-%%%
-%%% @end
-%%% Created : 04. Apr 2021 12:35 PM
-%%%-------------------------------------------------------------------
+%Programa que recibe lee un archivo en lenguaje c (.c) y resalta las categorías léxicas en un HTML
+%Yusdivia Molina Román A01653120
+%Lidia Paola Díaz Ramírez A01369117
+%Fecha de modificación: 16/04/2021
+
 -module(main).
--author("rafamac").
+-export([scan/1]).
 
-%% API
--export([scan/2]).
-
-scan(File1, File2) ->
+%Función principal, recibe el nombre del archivo por leer y escribe la salida sobre "salida.html", usa el archivo "header.html" como base
+scan(File1) ->
   {ok, Content} = file:read_file(File1),
   Lst = binary_to_list(Content),
   {ok, Lst2, _} = lexer:string(Lst),
-  {ok,Device2} = file:open(File2, write),
+  {ok,Device2} = file:open("salida.html", write),
   {ok, Content2} = file:read_file("header.html"),
   io:format(Device2, "~s", [binary_to_list(Content2)]),
   io:format(Device2,"~s~n", ["<body>"]),
@@ -24,11 +19,8 @@ scan(File1, File2) ->
   io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
   file:close(Device2).
 
+%Función de apoyo para scan, se encarga de escribir sobre el archivo dado
 write([], _) -> true;
 write([H | T], Device2) ->
   {_, Str, _} = H,
   io:format(Device2, "~s", [Str]), write(T, Device2).
-
-
-
-
