@@ -4,9 +4,10 @@
 %Fecha de modificación: 16/04/2021
 
 -module(main).
--export([scan/1, corre/0]).
+-export([corre/0,loop3/0]).
 
-corre() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
+%corre() -> timer:tc(?MODULE, principal, [["a","b","c"]]).
+corre() -> principal(["a","b","c"]).
 
 %Función principal, recibe el nombre del archivo por leer y escribe la salida sobre "salida.html", usa el archivo "header.html" como base
 scan([]) -> ok;
@@ -26,14 +27,13 @@ scan([H|T]) ->
 
 principal([])-> ok;
 principal([H|T])->
-Pid = spawn(?MODULE,loop3,[]),
+  Pid = spawn(?MODULE,loop3,[]),
   Pid ! {sumado, self(), H},
   principal(T).
 
 loop3() ->
   receive
     {sumado, Pid, FileN} ->
-
     {ok, Content} = file:read_file(filename:join([FileN, "main.c"])),
     Lst = binary_to_list(Content),
     {ok, Lst2, _} = lexer:string(Lst),
@@ -44,11 +44,7 @@ loop3() ->
     write(Lst2, Device2),
     io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
     file:close(Device2)
-
-
     end.
-
-
 
 
 %Función de apoyo para scan, se encarga de escribir sobre el archivo dado
