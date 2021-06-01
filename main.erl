@@ -4,7 +4,9 @@
 %Fecha de modificación: 16/04/2021
 
 -module(main).
--export([scan/1]).
+-export([scan/1,corre/0]).
+
+corre() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
 
 %Función principal, recibe el nombre del archivo por leer y escribe la salida sobre "salida.html", usa el archivo "header.html" como base
 scan([]) -> ok;
