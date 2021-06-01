@@ -1,14 +1,13 @@
 %Programa que recibe lee un archivo en lenguaje c (.c) y resalta las categorías léxicas en un HTML
 %Yusdivia Molina Román A01653120
 %Lidia Paola Díaz Ramírez A01369117
-%Fecha de modificación: 16/04/2021
+%Fecha de modificación: /2021
 
 -module(main).
 -export([corre/0,loop3/0, reunir/1, principal/2]).
 
 corre() -> timer:tc(?MODULE, principal, [["a","b","c"],3]).
 %corre() -> principal(["a","b","c"],3).
-
 
 principal([],N)-> reunir(N);
 principal([H|T],N)->
@@ -29,13 +28,13 @@ loop3() ->
     write(Lst2, Device2),
     io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
     file:close(Device2),
-    Pid ! {resul}
+    Pid ! {listo}
     end.
 
   reunir(0) -> 0;
   reunir(N) ->
       receive
-        {resul} ->
+        {listo} ->
           reunir(N-1)
     end.
 
