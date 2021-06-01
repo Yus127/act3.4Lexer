@@ -9,7 +9,7 @@
 corre() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
 
 %Función principal, recibe el nombre del archivo por leer y escribe la salida sobre "salida.html", usa el archivo "header.html" como base
-scan([]) -> ok;
+scan([]) -> 0;
 scan([H|T]) ->
   %{ok} = file:cd(Dir),
   {ok, Content} = file:read_file(filename:join([H, "main.c"])),
