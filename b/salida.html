@@ -5,14 +5,33 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<span class="INC">#include</span>&nbsp;<span class="COMP"><</span><span class="ID">stdio</span><span class="DIV">.</span><span class="ID">h</span><span class="COMP">></span>
+
+<br /><span class="INC">#include</span>&nbsp;<span class="COMP"><</span><span class="ID">stdio</span><span class="DIV">.</span><span class="ID">h</span><span class="COMP">></span>
+<br /><span class="RW">struct</span>&nbsp;<span class="ID">person</span>
+<br /><span class="DIV">{</span>
+<br />&nbsp;&nbsp;&nbsp;<span class="RW2">int</span>&nbsp;<span class="ID">age</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;<span class="RW2">float</span>&nbsp;<span class="ID">weight</span><span class="DIV">;</span>
+<br /><span class="DIV">}</span><span class="DIV">;</span>
 <br />
-<br /><span class="RW2">int</span>&nbsp;<span class="RW">main</span><span class="DIV">(</span><span class="DIV">)</span>&nbsp;<span class="DIV">{</span>
-<br />&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"Goodbye, World!"</span><span class="DIV">)</span><span class="DIV">;</span>
-<br />&nbsp;&nbsp;<span class="RW">return</span>&nbsp;<span class="NUMBER">0</span><span class="DIV">;</span>
+<br /><span class="RW2">int</span>&nbsp;<span class="RW">main</span><span class="DIV">(</span><span class="DIV">)</span>
+<br /><span class="DIV">{</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">struct</span>&nbsp;<span class="ID">person</span>&nbsp;<span class="MATH">*</span><span class="ID">personPtr</span><span class="DIV">,</span>&nbsp;<span class="ID">person1</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW2">int</span>&nbsp;<span class="ID">numero</span>&nbsp;<span class="COMP">=</span>&nbsp;<span class="NUMBER2">4.5e3</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW2">int</span>&nbsp;<span class="ID">a</span>&nbsp;<span class="COMP">=</span>&nbsp;<span class="NUMBER">2</span>&nbsp;<span class="MATH">+</span>&nbsp;<span class="NUMBER">4</span>&nbsp;<span class="MATH">*</span>&nbsp;<span class="NUMBER">7303</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="ID">personPtr</span>&nbsp;<span class="COMP">=</span>&nbsp;<span class="CARACT">&</span><span class="ID">person1</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"Enter age: "</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">scanf</span><span class="DIV">(</span><span class="STRING">"%d"</span><span class="DIV">,</span>&nbsp;<span class="CARACT">&</span><span class="ID">personPtr</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">age</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"Enter weight: "</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">scanf</span><span class="DIV">(</span><span class="STRING">"%f"</span><span class="DIV">,</span>&nbsp;<span class="CARACT">&</span><span class="ID">personPtr</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">weight</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"Displaying:\n"</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"Age: %d\n"</span><span class="DIV">,</span>&nbsp;<span class="ID">personPtr</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">age</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"weight: %f"</span><span class="DIV">,</span>&nbsp;<span class="ID">personPtr</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">weight</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="RW">return</span>&nbsp;<span class="NUMBER">0</span><span class="DIV">;</span>
 <br /><span class="DIV">}</span>
-<br /><span class="NUMBER">04894</span>&nbsp;<span class="MATH">+</span><span class="NUMBER">4342</span>
-<br /><span class="RW">return</span>
 <br />
 </body>
 </html>
