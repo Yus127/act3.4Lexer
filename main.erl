@@ -4,6 +4,7 @@
 %Fecha de modificación: 16/04/2021
 
 -module(main).
+<<<<<<< Updated upstream
 -export([scan/1,corre/0]).
 
 corre() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
@@ -23,8 +24,59 @@ scan([H|T]) ->
   io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
   file:close(Device2),
   scan(T).
+=======
+-export([corre/0,loop3/0, reunir/1, principal/2, corre2/0,scan/1]).
 
-%Función de apoyo para scan, se encarga de escribir sobre el archivo dado
+corre() -> timer:tc(?MODULE, principal, [["a","b","c"],3]).
+corre2() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
+
+principal([],N)-> reunir(N);
+principal([H|T],N)->
+  Pid = spawn(?MODULE,loop3,[]),
+  Pid ! {sumado, self(), H},
+  principal(T,N).
+
+loop3() ->
+  receive
+    {sumado, Pid, FileN} ->
+    {ok, Content} = file:read_file(filename:join([FileN, "main.c"])),
+    Lst = binary_to_list(Content),
+    {ok, Lst2, _} = lexer:string(Lst),
+    {ok,Device2} = file:open(filename:join([FileN, "salida.html"]), write),
+    {ok, Content2} = file:read_file("header.html"),
+    io:format(Device2, "~s", [binary_to_list(Content2)]),
+    io:format(Device2,"~s~n", ["<body>"]),
+    write(Lst2, Device2),
+    io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
+    file:close(Device2),
+    Pid ! {listo}
+    end.
+
+  reunir(0) -> 0;
+  reunir(N) ->
+      receive
+        {listo} ->
+          reunir(N-1)
+    end.
+
+  scan([]) -> 0;
+  scan([H|T]) ->
+      %{ok} = file:cd(Dir),
+      {ok, Content} = file:read_file(filename:join([H, "main.c"])),
+      Lst = binary_to_list(Content),
+      {ok, Lst2, _} = lexer:string(Lst),
+      {ok,Device2} = file:open(filename:join([H, "salida.html"]), write),
+      {ok, Content2} = file:read_file("header.html"),
+      io:format(Device2, "~s", [binary_to_list(Content2)]),
+      io:format(Device2,"~s~n", ["<body>"]),
+      write(Lst2, Device2),
+      io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
+      file:close(Device2),
+      scan(T).
+>>>>>>> Stashed changes
+
+
+%Función de apoyo para scan y loop3, se encarga de escribir sobre el archivo dado
 write([], _) -> true;
 write([H | T], Device2) ->
   {_, Str, _} = H,

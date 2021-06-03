@@ -1,0 +1,30 @@
+<!-- Yusdivia Molina Román A01653120 y Lidia Paola Díaz Ramírez A01369117-->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<span class="INC">#include</span>&nbsp;<span class="COMP"><</span><span class="ID">stdio</span><span class="DIV">.</span><span class="ID">h</span><span class="COMP">></span>
+<br /><span class="INC">#include</span>&nbsp;<span class="COMP"><</span><span class="ID">stdlib</span><span class="DIV">.</span><span class="ID">h</span><span class="COMP">></span>
+<br />
+<br /><span class="RW">typedef</span>&nbsp;<span class="RW">struct</span>&nbsp;<span class="DIV">{</span>
+<br />&nbsp;&nbsp;<span class="RW2">int</span>&nbsp;<span class="ID">x</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;<span class="RW2">int</span>&nbsp;<span class="ID">y</span><span class="DIV">;</span>
+<br /><span class="DIV">}</span>&nbsp;<span class="ID">point</span><span class="DIV">;</span>
+<br />
+<br /><span class="RW2">int</span>&nbsp;<span class="RW">main</span><span class="DIV">(</span><span class="DIV">)</span>&nbsp;<span class="DIV">{</span>
+<br />&nbsp;&nbsp;<span class="ID">point</span>&nbsp;<span class="MATH">*</span>&nbsp;<span class="ID">mypoint</span>&nbsp;<span class="COMP">=</span>&nbsp;<span class="ID">NULL</span><span class="DIV">;</span>
+<br />
+<br />&nbsp;&nbsp;
+<br />
+<br />&nbsp;&nbsp;<span class="ID">mypoint</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">x</span>&nbsp;<span class="COMP">=</span>&nbsp;<span class="NUMBER">10</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;<span class="ID">mypoint</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">y</span>&nbsp;<span class="COMP">=</span><span class="NUMBER">5</span>&nbsp;<span class="DIV">;</span>
+<br />&nbsp;&nbsp;<span class="RW">printf</span><span class="DIV">(</span><span class="STRING">"mypoint coordinates: %d, %d\n"</span><span class="DIV">,</span>&nbsp;<span class="ID">mypoint</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">x</span><span class="DIV">,</span>&nbsp;<span class="ID">mypoint</span><span class="MATH">-</span><span class="COMP">></span><span class="ID">y</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />
+<br />&nbsp;&nbsp;<span class="ID">free</span><span class="DIV">(</span><span class="ID">mypoint</span><span class="DIV">)</span><span class="DIV">;</span>
+<br />&nbsp;&nbsp;<span class="RW">return</span>&nbsp;<span class="NUMBER">0</span><span class="DIV">;</span>
+<br /><span class="DIV">}</span>
+<br />
+</body>
+</html>

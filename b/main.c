@@ -1,29 +1,22 @@
-//codigo de ejemplo   ~ ! # $ %  ^ & * ( ) _ + | \ - = { } [ ] : ; < > ? , . /
-#include <stdio.h>
-struct person
+#include<stdio.h>
+
+#define NAME "blabla"
+#define AGE 10
+
+int runner()
 {
-   int age;
-   float weight;
-};
+    static int count = 0;
+    count++;
+    return count;
+    //Comaterio :D
+}
 
 int main()
 {
-    struct person *personPtr, person1;
-    int numero = 4.5e3;
-    int a = 2 + 4 * 7303;
-    personPtr = &person1;
-    /*
-    Un comentario
-    */
-    printf("Enter age: ");
-    scanf("%d", &personPtr->age);
+    char vowels[] = {'A', 'E', 'I', 'O', 'U'};
 
-    printf("Enter weight: ");
-    scanf("%f", &personPtr->weight);
-
-    printf("Displaying:\n");
-    printf("Age: %d\n", personPtr->age);
-    printf("weight: %f", personPtr->weight);
-
+    printf("%d ", runner());
+    printf("%d ", runner());
     return 0;
+    
 }

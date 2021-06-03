@@ -1,29 +1,20 @@
-//codigo de ejemplo   ~ ! # $ %  ^ & * ( ) _ + | \ - = { } [ ] : ; < > ? , . /
 #include <stdio.h>
-struct person
-{
-   int age;
-   float weight;
-};
+#define BOOL char
+#define FALSE 0
+#define TRUE 1
 
-int main()
-{
-    struct person *personPtr, person1;
-    int numero = 4.5e3;
-    int a = 2 + 4 * 7303;
-    personPtr = &person1;
-    /*
-    Un comentario
-    */
-    printf("Enter age: ");
-    scanf("%d", &personPtr->age);
+int main() {
+  int a1 = 3;
+  float b2 = 4.5;
+  double c3 = 5.25;
+  float sum;
 
-    printf("Enter weight: ");
-    scanf("%f", &personPtr->weight);
+  int a = 0, b = 1, c = 2, d = 3, e = 4;
+  a = b - c + d * e;
+  printf("%d", a); /* will print 1-2+3*4 = 11 */
 
-    printf("Displaying:\n");
-    printf("Age: %d\n", personPtr->age);
-    printf("weight: %f", personPtr->weight);
 
-    return 0;
+
+  printf("The sum of a, b, and c is %f.", sum);
+  return 0;
 }
