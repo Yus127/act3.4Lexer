@@ -5,6 +5,7 @@
 
 -module(main).
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 -export([scan/1,corre/0]).
 
 corre() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
@@ -25,6 +26,8 @@ scan([H|T]) ->
   file:close(Device2),
   scan(T).
 =======
+=======
+>>>>>>> Stashed changes
 -export([corre/0,loop3/0, reunir/1, principal/2, corre2/0,scan/1]).
 
 corre() -> timer:tc(?MODULE, principal, [["a","b","c"],3]).
@@ -73,9 +76,14 @@ loop3() ->
       io:format(Device2,"~n~s~n~s~n", ["</body>", "</html>"]),
       file:close(Device2),
       scan(T).
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 
+=======
+
+
+>>>>>>> Stashed changes
 %Función de apoyo para scan y loop3, se encarga de escribir sobre el archivo dado
 write([], _) -> true;
 write([H | T], Device2) ->
