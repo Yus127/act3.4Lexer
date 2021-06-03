@@ -4,17 +4,19 @@
 %Fecha de modificación: /2021
 
 -module(main).
--export([corre/0,loop3/0, reunir/1, principal/2, corre2/0,scan/1]).
+-export([paralela/1, loop3/0, reunir/1, principal/2, secuencial/1, scan/1]).
 
-corre() -> timer:tc(?MODULE, principal, [["a","b","c"],3]).
-corre2() -> timer:tc(?MODULE, scan, [["a","b","c"]]).
+paralela(L) -> timer:tc(?MODULE, principal, [L,length(L)]).
+secuencial(L) -> timer:tc(?MODULE, scan, [L]).
 
+%Función que manda los treads según el número de carpetas por analizar, recibe la lista de carpetas y su longitud.
 principal([],N)-> reunir(N);
 principal([H|T],N)->
   Pid = spawn(?MODULE,loop3,[]),
   Pid ! {sumado, self(), H},
   principal(T,N).
 
+%Función de apoyo que lee los .c y genera los html con el resaltado
 loop3() ->
   receive
     {sumado, Pid, FileN} ->
@@ -31,6 +33,7 @@ loop3() ->
     Pid ! {listo}
     end.
 
+%Función final que revisa que todos los hilos ya hayan terminado su ejecución
   reunir(0) -> 0;
   reunir(N) ->
       receive
@@ -38,6 +41,7 @@ loop3() ->
           reunir(N-1)
     end.
 
+%Función para hacer la lectura y escritura de los archivos de forma secuencial
   scan([]) -> 0;
   scan([H|T]) ->
       %{ok} = file:cd(Dir),
