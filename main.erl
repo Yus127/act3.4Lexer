@@ -7,6 +7,7 @@
 -export([paralela/1, loop3/0, reunir/1, principal/2, secuencial/1, scan/1]).
 
 %Funciones que toman el tiempo de ejecución, reciben la lista de nombres de carpetas por analizar.
+%Para correrlo main:paralela(["a","b","c","d","e","f"]).
 paralela(L) -> timer:tc(?MODULE, principal, [L,length(L)]).
 secuencial(L) -> timer:tc(?MODULE, scan, [L]).
 
